@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 
 const UploadBlogs = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const [imageURL, setImageURL] = useState(null);
+
+    const onSubmit = data => {
+         const blogData = {
+             title: data.title,
+             description: data.description,
+             imageURL: imageURL
+         }
+
+        console.log(blogData);
+        const url = `http://localhost:5000/addBlog`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(blogData)
+        })
+        .then(res => console.log('server side response', res))
+    };
 
     const handleImageUpload = (event) => {
         console.log(event.target.files[0]);
@@ -14,7 +33,7 @@ const UploadBlogs = () => {
 
         axios.post('https://api.imgbb.com/1/upload', imageData)
           .then(function (response) {
-            console.log(response.data.data.display_url);
+            setImageURL(response.data.data.display_url);
           })
           .catch(function (error) {
             console.log(error);
