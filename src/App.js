@@ -1,12 +1,13 @@
 import './App.css';
+import { BlogProvider } from './components/Context/BlogContext';
 import Home from './components/Home/Home';
 import UploadBlogs from './components/UploadBlogs/UploadBlogs';
 function App() {
   return (
-    <div>
+    <BlogProvider>
       <Home />
       <UploadBlogs />
-    </div>
+    </BlogProvider>
   );
 }
 
