@@ -1,9 +1,12 @@
 import React from 'react';
+import AllBlogs from '../AllBlogs/AllBlogs';
+import UploadBlogs from '../UploadBlogs/UploadBlogs';
 
 const Home = () => {
     return (
         <div>
-            <h1> This is home </h1>
+            <UploadBlogs />
+            <AllBlogs />
         </div>
     );
 };
