@@ -5,7 +5,7 @@ import { BlogContext } from '../Context/BlogContext';
 const AllBlogs = () => {
     const [blogs, setBlogs] = useContext(BlogContext);
     useEffect(() => {
-        fetch('http://localhost:5000/allBlogs')
+        fetch('http://localhost:5000/blogs')
         .then(res => res.json())
         .then(data => setBlogs(data))
     })

@@ -1,11 +1,11 @@
 import React from 'react';
 import AllBlogs from '../AllBlogs/AllBlogs';
-import UploadBlogs from '../UploadBlogs/UploadBlogs';
+// import UploadBlogs from '../UploadBlogs/UploadBlogs';
 
 const Home = () => {
     return (
         <div>
-            <UploadBlogs />
+            {/* <UploadBlogs /> */}
             <AllBlogs />
         </div>
     );
